@@ -40,6 +40,8 @@ Collate:
     'AmoTaskTypes.R'
     'AmoTasks.R'
     'AmoUsers.R'
+    'package.R'
+    'zzz.R'
 Suggests:
     knitr,
     rmarkdown,

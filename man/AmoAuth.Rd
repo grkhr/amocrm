@@ -13,9 +13,9 @@ AmoAuth(
 )
 }
 \arguments{
-\item{email}{Email}
+\item{email}{Your email in AmoCRM, check xxx.amocrm.ru/settings/profile/}
 
-\item{apikey}{Your api key from settings in interface}
+\item{apikey}{Your api key from settings in interface, check xxx.amocrm.ru/settings/profile/}
 
 \item{domain}{Your domain in AmoCRM (xxx in xxx.amocrm.ru)}
 

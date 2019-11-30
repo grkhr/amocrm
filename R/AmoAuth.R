@@ -1,8 +1,8 @@
 #' Authorization
 #'
 #' Auth, using in other functions
-#' @param email Email
-#' @param apikey Your api key from settings in interface
+#' @param email Your email in AmoCRM, check xxx.amocrm.ru/settings/profile/
+#' @param apikey Your api key from settings in interface, check xxx.amocrm.ru/settings/profile/
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param verbose Printing the answer
