@@ -15,9 +15,7 @@
 #' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00' in UTC timezone. Doesn't work right now.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @export
-#' @importFrom httr GET
-#' @importFrom httr content
-#' @importFrom httr add_headers
+#' @import httr
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @import dplyr
