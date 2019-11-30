@@ -17,6 +17,7 @@
 #' @export
 #' @importFrom httr GET
 #' @importFrom httr content
+#' @importFrom httr add_headers
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @import dplyr
