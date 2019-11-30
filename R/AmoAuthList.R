@@ -5,6 +5,7 @@
 #' @param apikey Your api key from settings in interface, check xxx.amocrm.ru/settings/profile/
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @return List of auth parameters
+#' @export
 #' @examples
 #' AmoAuthList("email@email.ru", "shdfuisgea3624dwe6t", "test")
 
