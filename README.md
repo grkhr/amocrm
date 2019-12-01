@@ -35,7 +35,6 @@ leads <- AmoLeads(auth_list = auth_list)
 <a name="docs"></a>
 ## Документация
 ### Подробное описание функций, параметров и выходных данных
-#### Рекомендуется к прочтению
 
 * [Компании - AmoCompanies](md/AmoCompanies.md)
 * [Контакты - AmoContacts](md/AmoContacts.md)
