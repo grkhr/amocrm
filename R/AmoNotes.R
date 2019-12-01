@@ -87,7 +87,6 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(hdr))
-          return(answer)
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
           last_limit <- limit_offset
