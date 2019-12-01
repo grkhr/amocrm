@@ -17,6 +17,7 @@
 #' @import dplyr
 #' @import tictoc
 #' @import httr
+#' @importFrom plyr mapvalues
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @return Dataframe in output (or list of dataframes if all = TRUE.)
@@ -74,18 +75,12 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                             id = pasteNULL(id),
                             element_id = pasteNULL(element_id),
                             type = i,
-                            note_type = note_type,
-                            USER_LOGIN = email,
-                            USER_HASH = apikey
+                            note_type = note_type
           )
           que <- build_query(que_easy)
 
           Sys.setlocale("LC_TIME", "C")
-          hdr <- if (is.null(if_modified_since)) NULL else c('User-Agent' = 'python-requests/2.22.0',
-                                                             'Accept-Encoding'= 'gzip, deflate',
-                                                             'Accept'=  '*/*',
-                                                             'Connection' = 'keep-alive',
-                                                             'if-modified-since' = format(as.character(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S")))
+          hdr <- if (is.null(if_modified_since)) NULL else c("if-modified-since" = format(as.character(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S")))
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(.headers = hdr))
@@ -95,11 +90,11 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           limit_limit <- length(notes)
           # amo bug
           if (length(notes) == 0) {
-            answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que)
+            answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
             dataRaw <- content(answer, "parsed", "application/json")
             notes <- dataRaw$`_embedded`$items
             if (length(notes) == 0) {
-              answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que)
+              answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
               dataRaw <- content(answer, "parsed", "application/json")
               notes <- dataRaw$`_embedded`$items
               limit_limit <- length(notes)
@@ -129,7 +124,11 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
       }
       if (nrow(notes_all)) {
         notes_all <- notes_all %>% setNames(gsub(".", "_", names(.), fixed = T)) %>% mutate(id = as.integer(id))
-        notes_all <- get_datetime(notes_all, c('created_at', 'updated_at'), email, apikey, domain)
+        notes_all <- get_datetime(notes_all, c('created_at', 'updated_at'), email, apikey, domain) %>%
+          mutate(element_type = mapvalues(element_type,
+                                          c(1, 2, 3, 12),
+                                          c('contact', 'lead', 'company', 'customer'),
+                                          warn_missing = F))
       }
       main_list[[paste(i, "_notes")]] <- notes_all
       packageStartupMessage()
