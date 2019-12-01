@@ -35,7 +35,7 @@ AmoNotes(
 
 \item{type}{What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.}
 
-\item{note_type}{Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}}
+\item{note_type}{Type of note. Check \href{https://www.amocrm.ru/developers/content/api/notes#note_types}{more}.}
 
 \item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.}
 
@@ -45,10 +45,7 @@ AmoNotes(
 Dataframe in output (or list of dataframes if \code{all = TRUE}.)
 }
 \description{
-Function to get notes. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/notes}}
+Function to get notes.
 }
 \examples{
 # leads
