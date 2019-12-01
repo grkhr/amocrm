@@ -88,10 +88,10 @@ AmoTasks <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                       id = pasteNULL(id),
                       element_id = pasteNULL(element_id),
                       type = pasteNULL(type),
-                      "filter[date_create][from]" = if(is.null(date_create_from)) as.POSIXct(date_create_from, tz = 'UTC'),
-                      "filter[date_create][to]" = if(is.null(date_create_to)) as.POSIXct(date_create_to, tz = 'UTC'),
-                      "filter[date_modify][from]" = if(is.null(date_modify_from)) as.POSIXct(date_modify_from, tz = 'UTC'),
-                      "filter[date_modify][to]" = if(is.null(date_modify_to)) as.POSIXct(date_modify_to, tz = 'UTC'),
+                      "filter[date_create][from]" = if(is.null(date_create_from)) NULL else as.POSIXct(date_create_from, tz = 'UTC'),
+                      "filter[date_create][to]" = if(is.null(date_create_to)) NULL else as.POSIXct(date_create_to, tz = 'UTC'),
+                      "filter[date_modify][from]" = if(is.null(date_modify_from)) NULL else as.POSIXct(date_modify_from, tz = 'UTC'),
+                      "filter[date_modify][to]" = if(is.null(date_modify_to)) NULL else as.POSIXct(date_modify_to, tz = 'UTC'),
                       "filter[status]" = status)
 
     que_array <- list("responsible_user_id[]" = responsible_user_id,
