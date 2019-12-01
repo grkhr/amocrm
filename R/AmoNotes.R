@@ -74,7 +74,9 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                             id = pasteNULL(id),
                             element_id = pasteNULL(element_id),
                             type = i,
-                            note_type = note_type
+                            note_type = note_type,
+                            USER_LOGIN = email,
+                            USER_HASH = apikey
           )
           que <- build_query(que_easy)
 
@@ -87,7 +89,6 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(hdr))
-          return(answer)
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
           last_limit <- limit_offset
