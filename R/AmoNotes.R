@@ -10,7 +10,7 @@
 #' @param id Filter. Pass id or vector of ids of notes.
 #' @param type What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.
 #' @param element_id Filter. Id of lead/contact/etc.
-#' @param note_type Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}
+#' @param note_type Type of note. Check \href{https://www.amocrm.ru/developers/content/api/notes#note_types}{more}.
 #' @param if_modified_since Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @export
