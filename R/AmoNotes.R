@@ -97,6 +97,7 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
             dataRaw <- content(answer, "parsed", "application/json")
             notes <- dataRaw$`_embedded`$items
             if (length(notes) == 0) {
+              Sys.sleep(0.5)
               answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
               dataRaw <- content(answer, "parsed", "application/json")
               notes <- dataRaw$`_embedded`$items
