@@ -86,11 +86,9 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                                                              'Accept'=  '*/*',
                                                              'Connection' = 'keep-alive',
                                                              'if-modified-since' = format(as.character(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S")))
-          packageStartupMessage(hdr)
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(.headers = hdr))
-          packageStartupMessage(answer$request$headers)
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
           last_limit <- limit_offset
