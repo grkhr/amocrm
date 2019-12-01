@@ -14,13 +14,13 @@
 #' @param note_type Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}
 #' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00' in UTC timezone. Doesn't work right now.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
-#' @export
 #' @import dplyr
 #' @import tictoc
 #' @import httr
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @return Dataframe in output (or list of dataframes if all = TRUE.)
+#' @export
 #' @examples
 #' # leads
 #' notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
@@ -82,8 +82,8 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           hdr <- if (is.null(if_modified_since)) NULL else c('IF-MODIFIED-SINCE' = format(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S"))
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
-                        add_headers(hdr))
-
+                        add_headers(.header = hdr))
+          return(que)
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
           last_limit <- limit_offset
