@@ -21,8 +21,7 @@ AmoLeads(
   date_modify_from = NULL,
   date_modify_to = NULL,
   tasks = NULL,
-  active = NULL,
-  timezone = 3
+  active = NULL
 )
 }
 \arguments{

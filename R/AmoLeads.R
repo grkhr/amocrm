@@ -61,7 +61,7 @@ AmoLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                      id = NULL, query = NULL, responsible_user_id = NULL,
                      with_with = 'is_price_modified_by_robot,loss_reason_name', status = NULL,
                      date_create_from = NULL, date_create_to = NULL, date_modify_from = NULL, date_modify_to = NULL,
-                     tasks = NULL, active = NULL, timezone = 3) {
+                     tasks = NULL, active = NULL) {
   # auth
   if (!is.null(auth_list)) {
     email <- auth_list$email
