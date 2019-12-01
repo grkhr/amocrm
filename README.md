@@ -15,7 +15,7 @@ devtools::install_github("grkhr/amocrm")
 
 ## Quick start
 
-Для использования пакета нужны e-mail, API-ключ и домен. Их можно найти тут: xxx.amocrm.ru/settings/profile/, где xxx — ваш поддомен.
+Для использования пакета нужны e-mail, API-ключ и домен. Их можно найти тут: __xxx.amocrm.ru/settings/profile/__, где __xxx__ — ваш поддомен.
 
 ```r
 library(amocrm)
