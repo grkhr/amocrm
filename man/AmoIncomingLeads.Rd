@@ -27,11 +27,11 @@ AmoIncomingLeads(
 
 \item{limit}{Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data}
 
-\item{categories}{Filter. Categories. Vector or single value of "sip", "mail", "forms", "chats"}
+\item{categories}{Filter. Categories. Vector or single value of \code{"sip"}, \code{"mail"}, \code{"forms"} or \code{"chats"}.}
 
-\item{order_by_key}{Filter. Key of ordering. For example "created_at"}
+\item{order_by_key}{Filter. Key of ordering. For example \code{"created_at"}.}
 
-\item{order_by_value}{Filter. "asc" or "desc". Works if order_by_key is set.}
+\item{order_by_value}{Filter. \code{"asc"} or \code{"desc"}. Works if \code{order_by_key} is set.}
 
 \item{pipeline_id}{Filter. You can pass single id and get imcoming leads only from this pipeline. You can get ids from AmoPipelinesStatuses().}
 }
@@ -39,10 +39,7 @@ AmoIncomingLeads(
 Dataframe in output.
 }
 \description{
-Function to get incoming leads. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}.
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/unsorted}}
+Function to get incoming leads.
 }
 \examples{
 # get all
@@ -53,4 +50,12 @@ incleads <- AmoIncomingLeads(auth_list = auth_list,
                              categories = c('sip','mail'),
                              order_by_key = 'created_at',
                              order_by_value = 'desc')
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoIncomingLeads.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/unsorted}{AmoCRM official documentation}
 }

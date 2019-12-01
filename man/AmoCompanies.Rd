@@ -27,16 +27,16 @@ AmoCompanies(
 
 \item{limit}{Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data}
 
-\item{flatten}{Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
+\item{flatten}{Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
 
 \item{id}{Filter. Pass id or vector of ids of companies.}
 
 \item{query}{Filter. Searching for all fields of companies. String.}
 
-\item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from \code{\link{AmoUsers()}}.}
+\item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
 }
 \value{
-If flatten is F (default) you'll get a list of 6 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+If flatten is \code{FALSE} (default) you'll get a list of 6 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 
 companies - all companies with unnested parameters.
 
@@ -51,12 +51,19 @@ linked_contacts — linked contacts with all parameters.
 linked_customers — linked customers with all parameters.
 }
 \description{
-Function to get companies. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{github}.
-Check api params if needed \href{https://www.amocrm.ru/developers/content/api/companies}{here}
+Function to get companies.
 }
 \examples{
 library(dplyr)
 companies <- AmoCompanies(auth_list = auth_list)
 companies_with_cf <- companies$companies \%>\%
                         left_join(companies$linked_custom_fields, by = 'id') # not tidy
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/companies}{AmoCRM official documentation}
 }

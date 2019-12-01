@@ -8,14 +8,14 @@
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
 #' @param id Filter. Pass id or vector of ids of tasks.
-#' @param type Filter. Works if element_id is set. Pass "lead", "contact", "company" or "customer".
+#' @param type Filter. Works if element_id is set. Pass \code{"lead"}, \code{"contact"}, \code{"company"} or \code{"customer"}.
 #' @param element_id Filter. Pass contact/lead/etc id.
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
-#' @param date_create_from Filter. Date create of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_create_to Filter. Date create of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_modify_from Filter. Date modify of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_modify_to Filter. Date modify of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param status Filter. Pass 1 if you need done tasks, pass 0 if undone tasks.
+#' @param date_create_from Filter. Date create of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_create_to Filter. Date create of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_modify_from Filter. Date modify of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_modify_to Filter. Date modify of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param status Filter. Pass \code{1} if you need done tasks, pass \code{0} if undone tasks.
 #' @param created_by Filter. Tasks by author. Pass if of user or vector of ids.
 #' @param task_type Filter. Task by its type. Pass id. You can get id from AmoTaskTypes(). \href{https://www.amocrm.ru/developers/content/api/tasks#type}{More}.
 #' @export

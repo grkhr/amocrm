@@ -7,7 +7,7 @@
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
-#' @param flatten Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
+#' @param flatten Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
 #' @param id Filter. Pass id or vector of ids of companies.
 #' @param query Filter. Searching for all fields of companies. String.
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
@@ -19,7 +19,7 @@
 #' @include unnest_functions.R
 #' @import dplyr
 #' @import tictoc
-#' @return If flatten is F (default) you'll get a list of 6 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+#' @return If flatten is \code{FALSE} (default) you'll get a list of 6 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 #'
 #' companies - all companies with unnested parameters.
 #'

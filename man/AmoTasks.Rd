@@ -36,34 +36,31 @@ AmoTasks(
 
 \item{id}{Filter. Pass id or vector of ids of tasks.}
 
-\item{type}{Filter. Works if element_id is set. Pass "lead", "contact", "company" or "customer".}
+\item{type}{Filter. Works if element_id is set. Pass \code{"lead"}, \code{"contact"}, \code{"company"} or \code{"customer"}.}
 
 \item{element_id}{Filter. Pass contact/lead/etc id.}
 
 \item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
 
-\item{date_create_from}{Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_create_from}{Filter. Date create of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_create_to}{Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_create_to}{Filter. Date create of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_modify_from}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_modify_from}{Filter. Date modify of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_modify_to}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_modify_to}{Filter. Date modify of taks. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{status}{Filter. Pass 1 if you need done tasks, pass 0 if undone tasks.}
+\item{status}{Filter. Pass \code{1} if you need done tasks, pass \code{0} if undone tasks.}
 
 \item{created_by}{Filter. Tasks by author. Pass if of user or vector of ids.}
 
-\item{task_type}{Filter. Task by its type. Pass id. You can get id from AmoTaskTypes().}
+\item{task_type}{Filter. Task by its type. Pass id. You can get id from AmoTaskTypes(). \href{https://www.amocrm.ru/developers/content/api/tasks#type}{More}.}
 }
 \value{
 Dataframe in output.
 }
 \description{
-Function to get tasks. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/tasks}}
+Function to get tasks.
 }
 \examples{
 # simple
@@ -76,4 +73,12 @@ tasks <- AmoTasks(auth_list = auth_list,
                   date_create_to = '2019-02-20 17:00:00',
                   status = 0,
                   task_type = 1)
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoTasks.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/tasks}{AmoCRM official documentation}
 }

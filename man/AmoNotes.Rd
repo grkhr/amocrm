@@ -33,16 +33,16 @@ AmoNotes(
 
 \item{element_id}{Filter. Id of lead/contact/etc.}
 
-\item{type}{What to get. you can pass "contact", "lead", "company" or "task". Default to "contact". If you need all, look at "all" parameter.}
+\item{type}{What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.}
 
 \item{note_type}{Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}}
 
-\item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00'.}
+\item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.}
 
 \item{all}{If you want to load all note for all types, set TRUE. You'll get list of dataframes.}
 }
 \value{
-Dataframe in output (or list of dataframes if all = TRUE.)
+Dataframe in output (or list of dataframes if \code{all = TRUE}.)
 }
 \description{
 Function to get notes. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
@@ -53,4 +53,12 @@ Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content
 \examples{
 # leads
 notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoNotes.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/notes}{AmoCRM official documentation}
 }

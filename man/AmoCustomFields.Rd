@@ -23,14 +23,19 @@ list$custom_fields_xxx$custom_fields - ids and names
 list$custom_fields_xxx$custom_fields_enum - multiple values
 }
 \description{
-Function to get custom field names and ids for all. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/account}}
+Function to get custom field names and ids for all.
 }
 \examples{
 library(dplyr)
 custom_fields <- AmoCustomFields(auth_list = auth_list)
 custom_fields_contacts_with_enum <- custom_field$custom_fields_contacts$custom_fields \%>\%
   left_join(custom_field$custom_fields_contacts$custom_fields_enum, by = 'id') # not tidy
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoCustomFields.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 }

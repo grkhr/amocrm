@@ -36,7 +36,7 @@ AmoLeads(
 
 \item{limit}{Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data}
 
-\item{flatten}{Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
+\item{flatten}{Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
 
 \item{id}{Filter. Pass id or vector of ids of leads.}
 
@@ -44,24 +44,24 @@ AmoLeads(
 
 \item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
 
-\item{with_with}{Additional data. Default to 'is_price_modified_by_robot,loss_reason_name'.}
+\item{with_with}{Additional data. Default to \code{'is_price_modified_by_robot,loss_reason_name'}.}
 
 \item{status}{Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().}
 
-\item{date_create_from}{Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_create_from}{Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_create_to}{Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_create_to}{Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_modify_from}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_modify_from}{Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.}
 
-\item{date_modify_to}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
+\item{date_modify_to}{Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or timezone like \code{'2019-01-01 12:30:00'}.}
 
-\item{tasks}{Filter. Pass 1 if you need leads without tasks, pass 2 if you need leads with undone tasks.}
+\item{tasks}{Filter. Pass \code{1} if you need leads without tasks, pass \code{2} if you need leads with undone tasks.}
 
-\item{active}{Filter. Pass 1 if you need only active leads.}
+\item{active}{Filter. Pass \code{1} if you need only active leads.}
 }
 \value{
-If flatten is F (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+If flatten is \code{FALSE} (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 
 leads - all leads with unnested parameters.
 
@@ -72,10 +72,7 @@ linked_tags — linked tags with all parameters.
 linked_contacts — linked contacts with all parameters.
 }
 \description{
-Function to get leads. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/leads}}
+Function to get leads.
 }
 \examples{
 # simple
@@ -89,4 +86,12 @@ leads <- AmoLeads(auth_list = auth_list,
                   date_create_from = '2019-02-01 05:00:00',
                   date_create_to = '2019-02-20 17:00:00',
                   active = 1)
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoLeads.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/leads}{AmoCRM official documentation}
 }

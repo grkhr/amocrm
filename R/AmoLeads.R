@@ -7,18 +7,18 @@
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
-#' @param flatten Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
+#' @param flatten Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
 #' @param id Filter. Pass id or vector of ids of leads.
 #' @param query Filter. Searching for all fields of leads. String.
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
-#' @param with_with Additional data. Default to 'is_price_modified_by_robot,loss_reason_name'.
+#' @param with_with Additional data. Default to \code{'is_price_modified_by_robot,loss_reason_name'}.
 #' @param status Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().
-#' @param date_create_from Filter. Date create of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_create_to Filter. Date create of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_modify_from Filter. Date modify of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
-#' @param date_modify_to Filter. Date modify of lead. You can pass like '2019-01-01' or timezone like '2019-01-01 12:30:00'
-#' @param tasks Filter. Pass 1 if you need leads without tasks, pass 2 if you need leads with undone tasks.
-#' @param active Filter. Pass 1 if you need only active leads.
+#' @param date_create_from Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_create_to Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_modify_from Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_modify_to Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or timezone like \code{'2019-01-01 12:30:00'}.
+#' @param tasks Filter. Pass \code{1} if you need leads without tasks, pass \code{2} if you need leads with undone tasks.
+#' @param active Filter. Pass \code{1} if you need only active leads.
 #' @export
 #' @importFrom httr GET
 #' @importFrom httr content
@@ -26,7 +26,7 @@
 #' @include unnest_functions.R
 #' @import dplyr
 #' @import tictoc
-#' @return If flatten is F (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+#' @return If flatten is \code{FALSE} (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 #'
 #' leads - all leads with unnested parameters.
 #'

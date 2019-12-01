@@ -32,7 +32,7 @@ AmoCustomers(
 
 \item{limit}{Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data}
 
-\item{flatten}{Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
+\item{flatten}{Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes}
 
 \item{id}{Filter. Pass id or vector of ids of customers.}
 
@@ -40,16 +40,16 @@ AmoCustomers(
 
 \item{main_user}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
 
-\item{date_type}{Filter. Choose date type which you want to filter ('create' or 'modify')}
+\item{date_type}{Filter. Choose date type which you want to filter (\code{'create'} or \code{'modify'})}
 
-\item{date_from}{Filter. Date from, e.g. '2019-01-01'}
+\item{date_from}{Filter. Date from, e.g. \code{'2019-01-01'}.}
 
-\item{date_to}{Filter. Date to, e.g. '2019-01-01'}
+\item{date_to}{Filter. Date to, e.g. \code{'2019-01-01'}.}
 
 \item{next_date_from}{Filter. Date to of next purchasing.}
 }
 \value{
-If flatten is F (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+If flatten is \code{FALSE} (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 
 linked_custom_fields — linked custom fields with all parameters.
 
@@ -58,14 +58,18 @@ linked_tags — linked tags with all parameters.
 linked_contacts — linked contacts with all parameters.
 }
 \description{
-Function to get customers. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}.
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/customers}}
+Function to get customers.
 }
 \examples{
 library(dplyr)
 customers <- AmoCustomers(auth_list = auth_list)
 customers_with_cf <- customers$customers \%>\%
                         left_join(customers$linked_custom_fields, by = 'id') # not tidy
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoCustomers.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/customers}{AmoCRM official documentation}
 }

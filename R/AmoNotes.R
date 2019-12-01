@@ -9,10 +9,10 @@
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
 #' @param id Filter. Pass id or vector of ids of notes.
-#' @param type What to get. you can pass "contact", "lead", "company" or "task". Default to "contact". If you need all, look at "all" parameter.
+#' @param type What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.
 #' @param element_id Filter. Id of lead/contact/etc.
 #' @param note_type Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}
-#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:30:00'. Doesn't work right now.
+#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @export
 #' @import httr
@@ -21,7 +21,7 @@
 #' @include unnest_functions.R
 #' @import dplyr
 #' @import tictoc
-#' @return Dataframe in output (or list of dataframes if all = TRUE.)
+#' @return Dataframe in output (or list of dataframes if \code{all = TRUE}.)
 #'
 #' @references
 #' Please \strong{READ} this:

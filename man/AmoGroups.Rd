@@ -19,8 +19,16 @@ AmoGroups(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL)
 You'll get a groups.
 }
 \description{
-Function to get groups of users. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+Function to get groups of users.
 }
 \examples{
 groups <- AmoGroups(auth_list = auth_list)
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoGroups.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 }

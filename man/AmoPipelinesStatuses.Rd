@@ -24,11 +24,16 @@ AmoPipelinesStatuses(
 Dataframe in output.
 }
 \description{
-Function to get pipelines and statuses. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/account}}
+Function to get pipelines and statuses.
 }
 \examples{
 pipelines <- AmoPipelinesStatuses(auth_list = auth_list)
+
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoPipelinesStatuses.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 }

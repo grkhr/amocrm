@@ -7,9 +7,9 @@
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
-#' @param categories Filter. Categories. Vector or single value of "sip", "mail", "forms", "chats"
-#' @param order_by_key Filter. Key of ordering. For example "created_at"
-#' @param order_by_value Filter. "asc" or "desc". Works if order_by_key is set.
+#' @param categories Filter. Categories. Vector or single value of \code{"sip"}, \code{"mail"}, \code{"forms"} or \code{"chats"}.
+#' @param order_by_key Filter. Key of ordering. For example \code{"created_at"}.
+#' @param order_by_value Filter. \code{"asc"} or \code{"desc"}. Works if \code{order_by_key} is set.
 #' @param pipeline_id Filter. You can pass single id and get imcoming leads only from this pipeline. You can get ids from AmoPipelinesStatuses().
 #' @include query_functions.R
 #' @include unnest_functions.R

@@ -7,13 +7,13 @@
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
 #' @param auth_list List with auth data, you can build from AmoAuthList
 #' @param limit Batch limit, sometimes AmoCRM's API doesn't work properly, you can reduce the value and have a chance to load your data
-#' @param flatten Set TRUE if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
+#' @param flatten Set \code{TRUE} if you want to join all the output dataframes You'll have a not tidy-dataframe with left-joining all dataframes
 #' @param id Filter. Pass id or vector of ids of customers.
 #' @param query Filter. Searching for all fields of customers. String.
 #' @param main_user Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
-#' @param date_type Filter. Choose date type which you want to filter ('create' or 'modify')
-#' @param date_from Filter. Date from, e.g. '2019-01-01'
-#' @param date_to Filter. Date to, e.g. '2019-01-01'
+#' @param date_type Filter. Choose date type which you want to filter (\code{'create'} or \code{'modify'})
+#' @param date_from Filter. Date from, e.g. \code{'2019-01-01'}.
+#' @param date_to Filter. Date to, e.g. \code{'2019-01-01'}.
 #' @param next_date_from Filter. Date from of next purchasing.
 #' @param next_date_from Filter. Date to of next purchasing.
 #' @include query_functions.R
@@ -23,7 +23,7 @@
 #' @importFrom httr content
 #' @import dplyr
 #' @import tictoc
-#' @return If flatten is F (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
+#' @return If flatten is \code{FALSE} (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.
 #'
 #' linked_custom_fields — linked custom fields with all parameters.
 #'
