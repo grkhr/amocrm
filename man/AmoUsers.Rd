@@ -19,9 +19,15 @@ AmoUsers(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL)
 Dataframe in output.
 }
 \description{
-Function to get users. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoUsers.md}{github}.
-Check api params if needed \href{https://www.amocrm.ru/developers/content/api/account}{here}
+Function to get users.
 }
 \examples{
 users <- AmoUsers(auth_list = auth_list)
+}
+\references{
+Please \strong{READ} this:
+\href{https://github.com/grkhr/amocrm/blob/master/md/AmoUsers.md}{Function documentation in Russian on GitHub}
+
+Also nice to read:
+\href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 }

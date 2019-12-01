@@ -1,8 +1,7 @@
 #' Customers
 #'
-#' Function to get customers. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}.
+#' Function to get customers.
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/customers}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -31,6 +30,13 @@
 #' linked_tags — linked tags with all parameters.
 #'
 #' linked_contacts — linked contacts with all parameters.
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCustomers.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/customers}{AmoCRM official documentation}
 #'
 #' @examples
 #' library(dplyr)

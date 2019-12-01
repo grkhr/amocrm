@@ -1,6 +1,7 @@
 #' Groups
 #'
-#' Function to get groups of users. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get groups of users.
+#'
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -12,10 +13,17 @@
 #' @importFrom httr content
 #' @import dplyr
 #' @return You'll get a groups.
-
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoGroups.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
+#'
 #' @examples
 #' groups <- AmoGroups(auth_list = auth_list)
-
+#'
 AmoGroups <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

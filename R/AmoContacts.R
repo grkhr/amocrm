@@ -1,8 +1,7 @@
 #' Contacts
 #'
-#' Function to get contacts. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get contacts.
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/contacts}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -30,12 +29,20 @@
 #' linked_leads — linked leads with all parameters.
 #'
 #' linked_customers — linked customers with all parameters.
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoContacts.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/contacts}{AmoCRM official documentation}
+#'
 #' @examples
 #' library(dplyr)
 #' contacts <- AmoContacts(auth_list = auth_list)
 #' contacts_with_cf <- contacts$contacts %>%
 #'                         left_join(contacts$linked_custom_fields, by = 'id') # not tidy
-
+#'
 AmoContacts <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list = NULL, limit = 500, flatten = F,
                      id = NULL, query = NULL, responsible_user_id = NULL) {
   # auth

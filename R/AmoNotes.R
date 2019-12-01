@@ -12,20 +12,28 @@
 #' @param type What to get. you can pass "contact", "lead", "company" or "task". Default to "contact". If you need all, look at "all" parameter.
 #' @param element_id Filter. Id of lead/contact/etc.
 #' @param note_type Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}
-#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00'.
+#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:30:00'. Doesn't work right now.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
-#' @import dplyr
-#' @import tictoc
+#' @export
 #' @import httr
 #' @importFrom plyr mapvalues
 #' @include query_functions.R
 #' @include unnest_functions.R
+#' @import dplyr
+#' @import tictoc
 #' @return Dataframe in output (or list of dataframes if all = TRUE.)
-#' @export
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoNotes.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/notes}{AmoCRM official documentation}
+#'
 #' @examples
 #' # leads
 #' notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
-
+#'
 AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                      id = NULL, element_id = NULL, type = 'contact', note_type = NULL, if_modified_since = NULL, all = F) {
   tic()

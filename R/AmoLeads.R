@@ -1,8 +1,7 @@
 #' Leads
 #'
-#' Function to get leads. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get leads.
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/leads}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -14,10 +13,10 @@
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
 #' @param with_with Additional data. Default to 'is_price_modified_by_robot,loss_reason_name'.
 #' @param status Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().
-#' @param date_create_from Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_create_to Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_modify_from Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_modify_to Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_create_from Filter. Date create of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_create_to Filter. Date create of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_modify_from Filter. Date modify of lead. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_modify_to Filter. Date modify of lead. You can pass like '2019-01-01' or timezone like '2019-01-01 12:30:00'
 #' @param tasks Filter. Pass 1 if you need leads without tasks, pass 2 if you need leads with undone tasks.
 #' @param active Filter. Pass 1 if you need only active leads.
 #' @export
@@ -36,6 +35,14 @@
 #' linked_tags — linked tags with all parameters.
 #'
 #' linked_contacts — linked contacts with all parameters.
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoLeads.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/leads}{AmoCRM official documentation}
+#'
 #' @examples
 #' # simple
 #' library(dplyr)
@@ -48,7 +55,7 @@
 #'                   date_create_from = '2019-02-01 05:00:00',
 #'                   date_create_to = '2019-02-20 17:00:00',
 #'                   active = 1)
-
+#'
 AmoLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500, flatten = F,
                      id = NULL, query = NULL, responsible_user_id = NULL,
                      with_with = 'is_price_modified_by_robot,loss_reason_name', status = NULL,

@@ -33,7 +33,7 @@ AmoCompanies(
 
 \item{query}{Filter. Searching for all fields of companies. String.}
 
-\item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
+\item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from \code{\link{AmoUsers()}}.}
 }
 \value{
 If flatten is F (default) you'll get a list of 6 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.

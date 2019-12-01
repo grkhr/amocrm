@@ -1,7 +1,6 @@
 #' Companies
 #'
-#' Function to get companies. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{github}.
-#' Check api params if needed \href{https://www.amocrm.ru/developers/content/api/companies}{here}
+#' Function to get companies.
 #'
 #' @param email Email
 #' @param apikey Your api key from settings in interface
@@ -33,12 +32,20 @@
 #' linked_contacts — linked contacts with all parameters.
 #'
 #' linked_customers — linked customers with all parameters.
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/companies}{AmoCRM official documentation}
+#'
 #' @examples
 #' library(dplyr)
 #' companies <- AmoCompanies(auth_list = auth_list)
 #' companies_with_cf <- companies$companies %>%
 #'                         left_join(companies$linked_custom_fields, by = 'id') # not tidy
-
+#'
 AmoCompanies <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500, flatten = F,
                         id = NULL, query = NULL, responsible_user_id = NULL) {
   # auth

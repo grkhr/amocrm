@@ -1,7 +1,7 @@
 #' Users from account
 #'
-#' Function to get users. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoUsers.md}{github}.
-#' Check api params if needed \href{https://www.amocrm.ru/developers/content/api/account}{here}
+#' Function to get users.
+#'
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -15,9 +15,16 @@
 #' @import tictoc
 #' @return Dataframe in output.
 #'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoUsers.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
+#'
 #' @examples
 #' users <- AmoUsers(auth_list = auth_list)
-
+#'
 AmoUsers <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

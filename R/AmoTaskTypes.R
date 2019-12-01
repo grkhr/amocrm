@@ -1,8 +1,7 @@
 #' Task types from account
 #'
-#' Function to get tasks. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get tasks.
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/account}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -16,9 +15,16 @@
 #' @import tictoc
 #' @return Dataframe in output.
 #'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoTaskTypes.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/tasks#type}{AmoCRM official documentation}
+#'
 #' @examples
 #' task_types <- AmoTaskTypes(auth_list = auth_list)
-
+#'
 AmoTaskTypes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

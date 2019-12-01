@@ -1,8 +1,7 @@
 #' Tasks
 #'
-#' Function to get tasks. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get tasks.
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/tasks}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
@@ -12,13 +11,13 @@
 #' @param type Filter. Works if element_id is set. Pass "lead", "contact", "company" or "customer".
 #' @param element_id Filter. Pass contact/lead/etc id.
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
-#' @param date_create_from Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_create_to Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_modify_from Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
-#' @param date_modify_to Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_create_from Filter. Date create of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_create_to Filter. Date create of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_modify_from Filter. Date modify of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
+#' @param date_modify_to Filter. Date modify of taks. You can pass like '2019-01-01' or like '2019-01-01 12:30:00'
 #' @param status Filter. Pass 1 if you need done tasks, pass 0 if undone tasks.
 #' @param created_by Filter. Tasks by author. Pass if of user or vector of ids.
-#' @param task_type Filter. Task by its type. Pass id. You can get id from AmoTaskTypes().
+#' @param task_type Filter. Task by its type. Pass id. You can get id from AmoTaskTypes(). \href{https://www.amocrm.ru/developers/content/api/tasks#type}{More}.
 #' @export
 #' @importFrom httr GET
 #' @importFrom httr content
@@ -28,6 +27,14 @@
 #' @import dplyr
 #' @import tictoc
 #' @return Dataframe in output.
+#'
+#' @references
+#' Please \strong{READ} this:
+#' \href{https://github.com/grkhr/amocrm/blob/master/md/AmoTasks.md}{Function documentation in Russian on GitHub}
+#'
+#' Also nice to read:
+#' \href{https://www.amocrm.ru/developers/content/api/tasks}{AmoCRM official documentation}
+#'
 #' @examples
 #' # simple
 #' tasks <- AmoTasks(auth_list = auth_list)
@@ -39,7 +46,7 @@
 #'                   date_create_to = '2019-02-20 17:00:00',
 #'                   status = 0,
 #'                   task_type = 1)
-
+#'
 AmoTasks <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                      id = NULL, type = NULL, element_id = NULL, responsible_user_id = NULL,
                      date_create_from = NULL, date_create_to = NULL, date_modify_from = NULL, date_modify_to = NULL,
