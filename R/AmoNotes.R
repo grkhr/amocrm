@@ -79,10 +79,15 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           que <- build_query(que_easy)
 
           Sys.setlocale("LC_TIME", "C")
-          hdr <- if (is.null(if_modified_since)) NULL else c('if-modified-since' = format(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S"))
+          hdr <- if (is.null(if_modified_since)) NULL else c('User-Agent' = 'python-requests/2.22.0',
+                                                             'Accept-Encoding'= 'gzip, deflate',
+                                                             'Accept'=  '*/*',
+                                                             'Connection' = 'keep-alive',
+                                                             'if-modified-since' = format(as.character(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S")))
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(hdr))
+          return(answer)
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
           last_limit <- limit_offset
