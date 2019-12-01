@@ -30,5 +30,5 @@ TRUE if ok and error if not
 Auth, using in other functions
 }
 \examples{
-AmoAuth(auth_list = auth_list)
+AmoAuth(email = 'test@test.ru', apikey = 'jadbfjeabfkj', domain = 'test')
 }

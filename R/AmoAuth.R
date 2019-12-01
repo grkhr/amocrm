@@ -12,7 +12,7 @@
 #' @importFrom httr content
 #' @return TRUE if ok and error if not
 #' @examples
-#' AmoAuth(auth_list = auth_list)
+#' AmoAuth(email = 'test@@test.ru', apikey = 'jadbfjeabfkj', domain = 'test')
 
 AmoAuth <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, verbose = T) {
   if (!is.null(auth_list)) {
