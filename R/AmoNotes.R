@@ -15,6 +15,7 @@
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @export
 #' @import httr
+#' @importFrom stats setNames
 #' @importFrom plyr mapvalues
 #' @include query_functions.R
 #' @include unnest_functions.R

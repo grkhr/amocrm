@@ -20,6 +20,7 @@
 #' @param tasks Filter. Pass \code{1} if you need leads without tasks, pass \code{2} if you need leads with undone tasks.
 #' @param active Filter. Pass \code{1} if you need only active leads.
 #' @export
+#' @importFrom stats setNames
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @include query_functions.R

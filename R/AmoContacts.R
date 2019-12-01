@@ -14,6 +14,7 @@
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @export
+#' @importFrom stats setNames
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @import dplyr

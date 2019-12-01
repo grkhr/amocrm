@@ -13,6 +13,7 @@
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
 #'
 #' @export
+#' @importFrom stats setNames
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @include query_functions.R

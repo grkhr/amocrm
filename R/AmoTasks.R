@@ -19,6 +19,7 @@
 #' @param created_by Filter. Tasks by author. Pass if of user or vector of ids.
 #' @param task_type Filter. Task by its type. Pass id. You can get id from AmoTaskTypes(). \href{https://www.amocrm.ru/developers/content/api/tasks#type}{More}.
 #' @export
+#' @importFrom stats setNames
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @importFrom plyr mapvalues
