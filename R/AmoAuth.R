@@ -1,6 +1,7 @@
 #' Authorization
 #'
 #' Auth, using in other functions
+#'
 #' @param email Your email in AmoCRM, check xxx.amocrm.ru/settings/profile/
 #' @param apikey Your api key from settings in interface, check xxx.amocrm.ru/settings/profile/
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
