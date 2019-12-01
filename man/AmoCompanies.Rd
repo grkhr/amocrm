@@ -51,10 +51,8 @@ linked_contacts — linked contacts with all parameters.
 linked_customers — linked customers with all parameters.
 }
 \description{
-Function to get companies. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
-}
-\details{
-Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/companies}}
+Function to get companies. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{github}.
+Check api params if needed \href{https://www.amocrm.ru/developers/content/api/companies}{here}
 }
 \examples{
 library(dplyr)

@@ -1,8 +1,8 @@
 #' Companies
 #'
-#' Function to get companies. Please read the following manual on github: \code{\link{https://github.com/grkhr/amocrm}}
+#' Function to get companies. Please read the following manual on \href{https://github.com/grkhr/amocrm/blob/master/md/AmoCompanies.md}{github}.
+#' Check api params if needed \href{https://www.amocrm.ru/developers/content/api/companies}{here}
 #'
-#' Check api params if needed: \code{\link{https://www.amocrm.ru/developers/content/api/companies}}
 #' @param email Email
 #' @param apikey Your api key from settings in interface
 #' @param domain Your domain in AmoCRM (xxx in xxx.amocrm.ru)
