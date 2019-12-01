@@ -37,7 +37,7 @@ AmoNotes(
 
 \item{note_type}{Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}}
 
-\item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00' in UTC timezone. Doesn't work right now.}
+\item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00'.}
 
 \item{all}{If you want to load all note for all types, set TRUE. You'll get list of dataframes.}
 }

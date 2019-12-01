@@ -12,7 +12,7 @@
 #' @param type What to get. you can pass "contact", "lead", "company" or "task". Default to "contact". If you need all, look at "all" parameter.
 #' @param element_id Filter. Id of lead/contact/etc.
 #' @param note_type Type of note. Check docs: \code{\link{https://www.amocrm.ru/developers/content/api/notes#note_types}}
-#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00' in UTC timezone. Doesn't work right now.
+#' @param if_modified_since Filter. Get notes after some timestamp. Pass time like '2019-01-01 12:00:00'.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @import dplyr
 #' @import tictoc
