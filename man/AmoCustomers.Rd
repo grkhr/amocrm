@@ -46,7 +46,9 @@ AmoCustomers(
 
 \item{date_to}{Filter. Date to, e.g. \code{'2019-01-01'}.}
 
-\item{next_date_from}{Filter. Date to of next purchasing.}
+\item{next_date_from}{Filter. Date from of next purchasing.}
+
+\item{next_date_to}{Filter. Date to of next purchasing.}
 }
 \value{
 If flatten is \code{FALSE} (default) you'll get a list of 4 tidy-dataframes which you can join by id. You can access it using list_name$dataframe_name.

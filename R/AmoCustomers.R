@@ -15,7 +15,7 @@
 #' @param date_from Filter. Date from, e.g. \code{'2019-01-01'}.
 #' @param date_to Filter. Date to, e.g. \code{'2019-01-01'}.
 #' @param next_date_from Filter. Date from of next purchasing.
-#' @param next_date_from Filter. Date to of next purchasing.
+#' @param next_date_to Filter. Date to of next purchasing.
 #' @include query_functions.R
 #' @include unnest_functions.R
 #' @export
