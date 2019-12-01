@@ -3,6 +3,8 @@
 #' @description
 #' A package for extracting data from AmoCRM into R.
 #'
+#' P.S. Set all datetimes in timezone of your AmoCRM account. You don't need to do anything with timestamps, all will automatically convert from and to UTC.
+#'
 #' @section Key features:
 #'
 #' \itemize{
