@@ -79,7 +79,7 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           que <- build_query(que_easy)
 
           Sys.setlocale("LC_TIME", "C")
-          hdr <- if (is.null(if_modified_since)) NULL else c('IF-MODIFIED-SINCE' = format(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S"))
+          hdr <- if (is.null(if_modified_since)) NULL else c('if-modified-since' = format(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S"))
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(hdr))
