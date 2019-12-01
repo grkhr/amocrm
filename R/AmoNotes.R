@@ -46,6 +46,9 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
       auth <- AmoAuth(email, apikey, domain, verbose=F)
       if (auth != T) stop(auth)
 
+      tz <- get_timezone(email, apikey, domain)
+      Sys.setenv(TZ=tz)
+
       for_what <- ifelse(i == "company", "companies", paste0(i, "s"))
 
       packageStartupMessage('Processing notes for ', for_what, '...')
@@ -80,7 +83,7 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
           que <- build_query(que_easy)
 
           Sys.setlocale("LC_TIME", "C")
-          hdr <- if (is.null(if_modified_since)) NULL else c("if-modified-since" = format(as.character(as.POSIXct(if_modified_since), "%a, %d %b %Y %H:%M:%S")))
+          hdr <- if (is.null(if_modified_since)) NULL else c("if-modified-since" = format(as.character(as.POSIXct(if_modified_since, tz = "UTC"), "%a, %d %b %Y %H:%M:%S")))
           answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
                         query=que,
                         add_headers(.headers = hdr))

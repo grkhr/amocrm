@@ -14,10 +14,10 @@
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
 #' @param with_with Additional data. Default to 'is_price_modified_by_robot,loss_reason_name'.
 #' @param status Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().
-#' @param date_create_from Filter. Date create of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_create_to Filter. Date create of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_modify_from Filter. Date modify of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_modify_to Filter. Date modify of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
+#' @param date_create_from Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_create_to Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_modify_from Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_modify_to Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
 #' @param tasks Filter. Pass 1 if you need leads without tasks, pass 2 if you need leads with undone tasks.
 #' @param active Filter. Pass 1 if you need only active leads.
 #' @export
@@ -63,6 +63,9 @@ AmoLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
   auth <- AmoAuth(email, apikey, domain, verbose=F)
   if (auth != T) stop(auth)
 
+  tz <- get_timezone(email, apikey, domain)
+  Sys.setenv(TZ=tz)
+
   packageStartupMessage('Processing leads...')
   tic()
   options(warn = -1)
@@ -98,10 +101,10 @@ AmoLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                      id = pasteNULL(id),
                      query = query,
                      "with" = with_with,
-                     "filter[date_create][from]" = date_create_from,
-                     "filter[date_create][to]" = date_create_to,
-                     "filter[date_modify][from]" = date_modify_from,
-                     "filter[date_modify][to]" = date_modify_to,
+                     "filter[date_create][from]" = if(is.null(date_create_from)) NULL else as.POSIXct(date_create_from, tz = 'UTC'),
+                     "filter[date_create][to]" = if(is.null(date_create_to)) NULL else as.POSIXct(date_create_to, tz = 'UTC'),
+                     "filter[date_modify][from]" = if(is.null(date_modify_from)) NULL else as.POSIXct(date_modify_from, tz = 'UTC'),
+                     "filter[date_modify][to]" = if(is.null(date_modify_to)) NULL else as.POSIXct(date_modify_to, tz = 'UTC'),
                      "filter[tasks]" = tasks,
                      "filter[active]" = active
     )

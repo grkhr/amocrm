@@ -12,10 +12,10 @@
 #' @param type Filter. Works if element_id is set. Pass "lead", "contact", "company" or "customer".
 #' @param element_id Filter. Pass contact/lead/etc id.
 #' @param responsible_user_id Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
-#' @param date_create_from Filter. Date create of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_create_to Filter. Date create of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_modify_from Filter. Date modify of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
-#' @param date_modify_to Filter. Date modify of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'
+#' @param date_create_from Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_create_to Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_modify_from Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
+#' @param date_modify_to Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'
 #' @param status Filter. Pass 1 if you need done tasks, pass 0 if undone tasks.
 #' @param created_by Filter. Tasks by author. Pass if of user or vector of ids.
 #' @param task_type Filter. Task by its type. Pass id. You can get id from AmoTaskTypes().
@@ -53,6 +53,9 @@ AmoTasks <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
   auth <- AmoAuth(email, apikey, domain, verbose=F)
   if (auth != T) stop(auth)
 
+  tz <- get_timezone(email, apikey, domain)
+  Sys.setenv(TZ=tz)
+
   packageStartupMessage('Processing tasks...')
   tic()
   options(warn = -1)
@@ -85,10 +88,10 @@ AmoTasks <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
                       id = pasteNULL(id),
                       element_id = pasteNULL(element_id),
                       type = pasteNULL(type),
-                      "filter[date_create][from]" = date_create_from,
-                      "filter[date_create][to]" = date_create_to,
-                      "filter[date_modify][from]" = date_modify_from,
-                      "filter[date_modify][to]" = date_modify_to,
+                      "filter[date_create][from]" = if(is.null(date_create_from)) as.POSIXct(date_create_from, tz = 'UTC'),
+                      "filter[date_create][to]" = if(is.null(date_create_to)) as.POSIXct(date_create_to, tz = 'UTC'),
+                      "filter[date_modify][from]" = if(is.null(date_modify_from)) as.POSIXct(date_modify_from, tz = 'UTC'),
+                      "filter[date_modify][to]" = if(is.null(date_modify_to)) as.POSIXct(date_modify_to, tz = 'UTC'),
                       "filter[status]" = status)
 
     que_array <- list("responsible_user_id[]" = responsible_user_id,

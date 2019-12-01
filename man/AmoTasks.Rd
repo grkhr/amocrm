@@ -42,13 +42,13 @@ AmoTasks(
 
 \item{responsible_user_id}{Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().}
 
-\item{date_create_from}{Filter. Date create of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_create_from}{Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_create_to}{Filter. Date create of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_create_to}{Filter. Date create of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_modify_from}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_modify_from}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_modify_to}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_modify_to}{Filter. Date modify of taks. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
 \item{status}{Filter. Pass 1 if you need done tasks, pass 0 if undone tasks.}
 

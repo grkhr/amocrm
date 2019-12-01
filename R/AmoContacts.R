@@ -47,6 +47,9 @@ AmoContacts <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list =
   auth <- AmoAuth(email, apikey, domain, verbose=F)
   if (auth != T) stop(auth)
 
+  tz <- get_timezone(email, apikey, domain)
+  Sys.setenv(TZ=tz)
+
   packageStartupMessage('Processing contacts...')
   tic()
   options(warn = -1)

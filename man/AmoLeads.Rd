@@ -48,13 +48,13 @@ AmoLeads(
 
 \item{status}{Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().}
 
-\item{date_create_from}{Filter. Date create of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_create_from}{Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_create_to}{Filter. Date create of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_create_to}{Filter. Date create of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_modify_from}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_modify_from}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
-\item{date_modify_to}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time in UTC timezone like '2019-01-01 12:00:00'}
+\item{date_modify_to}{Filter. Date modify of lead. You can pass like '2019-01-01' or with time like '2019-01-01 12:00:00'}
 
 \item{tasks}{Filter. Pass 1 if you need leads without tasks, pass 2 if you need leads with undone tasks.}
 
