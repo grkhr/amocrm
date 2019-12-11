@@ -22,8 +22,9 @@ Dataframe in output.
 Function to get tasks.
 }
 \examples{
+\dontrun{
 task_types <- AmoTaskTypes(auth_list = auth_list)
-
+}
 }
 \references{
 Please \strong{READ} this:

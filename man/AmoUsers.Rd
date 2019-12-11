@@ -22,8 +22,9 @@ Dataframe in output.
 Function to get users.
 }
 \examples{
+\dontrun{
 users <- AmoUsers(auth_list = auth_list)
-
+}
 }
 \references{
 Please \strong{READ} this:

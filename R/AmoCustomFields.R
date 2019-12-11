@@ -28,10 +28,12 @@
 #' \href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #' custom_fields <- AmoCustomFields(auth_list = auth_list)
 #' custom_fields_contacts_with_enum <- custom_field$custom_fields_contacts$custom_fields %>%
 #'   left_join(custom_field$custom_fields_contacts$custom_fields_enum, by = 'id') # not tidy
+#' }
 #'
 AmoCustomFields <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL) {
   if (!is.null(auth_list)) {

@@ -39,11 +39,12 @@
 #' \href{https://www.amocrm.ru/developers/content/api/contacts}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #' contacts <- AmoContacts(auth_list = auth_list)
 #' contacts_with_cf <- contacts$contacts %>%
 #'                         left_join(contacts$linked_custom_fields, by = 'id') # not tidy
-#'
+#' }
 AmoContacts <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list = NULL, limit = 500, flatten = F,
                      id = NULL, query = NULL, responsible_user_id = NULL) {
   # auth

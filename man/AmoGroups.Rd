@@ -22,8 +22,9 @@ You'll get a groups.
 Function to get groups of users.
 }
 \examples{
+\dontrun{
 groups <- AmoGroups(auth_list = auth_list)
-
+}
 }
 \references{
 Please \strong{READ} this:

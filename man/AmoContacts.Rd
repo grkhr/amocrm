@@ -52,11 +52,12 @@ linked_customers — linked customers with all parameters.
 Function to get contacts.
 }
 \examples{
+\dontrun{
 library(dplyr)
 contacts <- AmoContacts(auth_list = auth_list)
 contacts_with_cf <- contacts$contacts \%>\%
                         left_join(contacts$linked_custom_fields, by = 'id') # not tidy
-
+}
 }
 \references{
 Please \strong{READ} this:

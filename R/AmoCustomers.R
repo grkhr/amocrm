@@ -40,10 +40,12 @@
 #' \href{https://www.amocrm.ru/developers/content/api/customers}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #' customers <- AmoCustomers(auth_list = auth_list)
 #' customers_with_cf <- customers$customers %>%
 #'                         left_join(customers$linked_custom_fields, by = 'id') # not tidy
+#' }
 
 AmoCustomers <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list = NULL, limit = 500, flatten = F,
                          id = NULL, query = NULL, main_user = NULL,

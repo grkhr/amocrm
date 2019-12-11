@@ -36,8 +36,10 @@ Dataframe in output.
 Function to get transactions of customers.
 }
 \examples{
+\dontrun{
 # get all
 transactions <- AmoCustomersTransations(auth_list = auth_list)
+}
 
 }
 \references{

@@ -27,8 +27,9 @@ Dataframe in output.
 Function to get pipelines and statuses.
 }
 \examples{
+\dontrun{
 pipelines <- AmoPipelinesStatuses(auth_list = auth_list)
-
+}
 }
 \references{
 Please \strong{READ} this:

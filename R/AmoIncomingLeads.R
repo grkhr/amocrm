@@ -29,6 +29,7 @@
 #' \href{https://www.amocrm.ru/developers/content/api/unsorted}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' # get all
 #' incleads <- AmoIncomingLeads(auth_list = auth_list)
 #'
@@ -37,6 +38,7 @@
 #'                              categories = c('sip','mail'),
 #'                              order_by_key = 'created_at',
 #'                              order_by_value = 'desc')
+#' }
 #'
 AmoIncomingLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                              categories = NULL, order_by_key = NULL, order_by_value = NULL, pipeline_id = NULL) {

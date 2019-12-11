@@ -20,5 +20,7 @@ List of auth parameters
 Using for nice-passing auth parameters
 }
 \examples{
+\dontrun{
 AmoAuthList("email@email.ru", "shdfuisgea3624dwe6t", "test")
+}
 }

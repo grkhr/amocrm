@@ -74,6 +74,7 @@ linked_contacts — linked contacts with all parameters.
 Function to get leads.
 }
 \examples{
+\dontrun{
 # simple
 library(dplyr)
 leads <- AmoLeads(auth_list = auth_list)
@@ -85,7 +86,7 @@ leads <- AmoLeads(auth_list = auth_list,
                   date_create_from = '2019-02-01 05:00:00',
                   date_create_to = '2019-02-20 17:00:00',
                   active = 1)
-
+}
 }
 \references{
 Please \strong{READ} this:

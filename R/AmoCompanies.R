@@ -42,11 +42,12 @@
 #' \href{https://www.amocrm.ru/developers/content/api/companies}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #' companies <- AmoCompanies(auth_list = auth_list)
 #' companies_with_cf <- companies$companies %>%
 #'                         left_join(companies$linked_custom_fields, by = 'id') # not tidy
-#'
+#' }
 AmoCompanies <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500, flatten = F,
                         id = NULL, query = NULL, responsible_user_id = NULL) {
   # auth

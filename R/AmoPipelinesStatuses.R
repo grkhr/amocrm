@@ -24,8 +24,9 @@
 #' \href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' pipelines <- AmoPipelinesStatuses(auth_list = auth_list)
-#'
+#' }
 AmoPipelinesStatuses <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

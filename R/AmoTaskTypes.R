@@ -24,8 +24,9 @@
 #' \href{https://www.amocrm.ru/developers/content/api/tasks#type}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' task_types <- AmoTaskTypes(auth_list = auth_list)
-#'
+#' }
 AmoTaskTypes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

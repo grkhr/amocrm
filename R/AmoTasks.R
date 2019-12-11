@@ -37,6 +37,7 @@
 #' \href{https://www.amocrm.ru/developers/content/api/tasks}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' # simple
 #' tasks <- AmoTasks(auth_list = auth_list)
 #'
@@ -47,7 +48,7 @@
 #'                   date_create_to = '2019-02-20 17:00:00',
 #'                   status = 0,
 #'                   task_type = 1)
-#'
+#' }
 AmoTasks <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                      id = NULL, type = NULL, element_id = NULL, responsible_user_id = NULL,
                      date_create_from = NULL, date_create_to = NULL, date_modify_from = NULL, date_modify_to = NULL,

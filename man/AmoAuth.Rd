@@ -30,5 +30,7 @@ TRUE if ok and error if not
 Auth, using in other functions
 }
 \examples{
+\dontrun{
 AmoAuth(email = 'test@test.ru', apikey = 'jadbfjeabfkj', domain = 'test')
+}
 }

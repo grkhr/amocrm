@@ -45,6 +45,7 @@
 #' \href{https://www.amocrm.ru/developers/content/api/leads}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' # simple
 #' library(dplyr)
 #' leads <- AmoLeads(auth_list = auth_list)
@@ -56,7 +57,7 @@
 #'                   date_create_from = '2019-02-01 05:00:00',
 #'                   date_create_to = '2019-02-20 17:00:00',
 #'                   active = 1)
-#'
+#' }
 AmoLeads <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500, flatten = F,
                      id = NULL, query = NULL, responsible_user_id = NULL,
                      with_with = 'is_price_modified_by_robot,loss_reason_name', status = NULL,

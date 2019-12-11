@@ -63,6 +63,7 @@ Dataframe in output.
 Function to get tasks.
 }
 \examples{
+\dontrun{
 # simple
 tasks <- AmoTasks(auth_list = auth_list)
 
@@ -73,7 +74,7 @@ tasks <- AmoTasks(auth_list = auth_list,
                   date_create_to = '2019-02-20 17:00:00',
                   status = 0,
                   task_type = 1)
-
+}
 }
 \references{
 Please \strong{READ} this:

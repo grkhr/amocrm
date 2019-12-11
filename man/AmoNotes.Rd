@@ -48,9 +48,10 @@ Dataframe in output (or list of dataframes if \code{all = TRUE}.)
 Function to get notes.
 }
 \examples{
+\dontrun{
 # leads
 notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
-
+}
 }
 \references{
 Please \strong{READ} this:

@@ -27,8 +27,10 @@
 #' \href{https://www.amocrm.ru/developers/content/api/customers}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' # get all
 #' transactions <- AmoCustomersTransations(auth_list = auth_list)
+#' }
 #'
 AmoCustomersTransactions <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                              id = NULL, customer_id = NULL) {

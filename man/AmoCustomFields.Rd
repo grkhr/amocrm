@@ -26,10 +26,12 @@ list$custom_fields_xxx$custom_fields_enum - multiple values
 Function to get custom field names and ids for all.
 }
 \examples{
+\dontrun{
 library(dplyr)
 custom_fields <- AmoCustomFields(auth_list = auth_list)
 custom_fields_contacts_with_enum <- custom_field$custom_fields_contacts$custom_fields \%>\%
   left_join(custom_field$custom_fields_contacts$custom_fields_enum, by = 'id') # not tidy
+}
 
 }
 \references{

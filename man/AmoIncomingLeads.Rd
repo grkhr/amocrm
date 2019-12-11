@@ -42,6 +42,7 @@ Dataframe in output.
 Function to get incoming leads.
 }
 \examples{
+\dontrun{
 # get all
 incleads <- AmoIncomingLeads(auth_list = auth_list)
 
@@ -50,6 +51,7 @@ incleads <- AmoIncomingLeads(auth_list = auth_list,
                              categories = c('sip','mail'),
                              order_by_key = 'created_at',
                              order_by_value = 'desc')
+}
 
 }
 \references{

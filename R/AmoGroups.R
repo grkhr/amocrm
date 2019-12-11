@@ -23,8 +23,9 @@
 #' \href{https://www.amocrm.ru/developers/content/api/account}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' groups <- AmoGroups(auth_list = auth_list)
-#'
+#' }
 AmoGroups <- function(email = NULL, apikey = NULL, domain = NULL,  auth_list = NULL) {
   if (!is.null(auth_list)) {
     email <- auth_list$email

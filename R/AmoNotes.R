@@ -31,9 +31,10 @@
 #' \href{https://www.amocrm.ru/developers/content/api/notes}{AmoCRM official documentation}
 #'
 #' @examples
+#' \dontrun{
 #' # leads
 #' notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
-#'
+#' }
 AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                      id = NULL, element_id = NULL, type = 'contact', note_type = NULL, if_modified_since = NULL, all = F) {
   tic()
