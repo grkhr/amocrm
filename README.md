@@ -28,6 +28,9 @@ users <- AmoUsers(auth_list = auth_list)
 
 # получение сделок
 leads <- AmoLeads(auth_list = auth_list)
+
+# получение изменений этапов сделок с 1 июня 2019
+notes <- AmoNotes(auth_list = auth_list, type = 'lead', note_type = 3, if_modified_since = '2019-06-01 00:00:00')
 ```
 
 **Важно**: Все параметры типа datetime возвращаются в таймзоне вашего аккаунта. С фильтрами то же самое. Пакет сам конвертирует время из/в UTC, дополнительных действий не требуется. 

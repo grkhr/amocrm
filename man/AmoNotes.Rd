@@ -35,7 +35,7 @@ AmoNotes(
 
 \item{type}{What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.}
 
-\item{note_type}{Type of note. Check \href{https://www.amocrm.ru/developers/content/api/notes#note_types}{more}.}
+\item{note_type}{Type of note. Useful filter. Check \href{https://github.com/grkhr/amocrm/blob/master/md/AmoNotes.md#note_type}{all note types}.}
 
 \item{if_modified_since}{Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.}
 
@@ -51,6 +51,9 @@ Function to get notes.
 \dontrun{
 # leads
 notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
+
+# get lead's statuses changes from 1 june 2019
+notes <- AmoNotes(auth_list = auth_list, type = 'lead', note_type = 3, if_modified_since = '2019-06-01 00:00:00')
 }
 }
 \references{

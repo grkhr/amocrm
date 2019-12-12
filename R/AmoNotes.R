@@ -10,7 +10,7 @@
 #' @param id Filter. Pass id or vector of ids of notes.
 #' @param type What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.
 #' @param element_id Filter. Id of lead/contact/etc.
-#' @param note_type Type of note. Check \href{https://www.amocrm.ru/developers/content/api/notes#note_types}{more}.
+#' @param note_type Type of note. Useful filter. Check \href{https://github.com/grkhr/amocrm/blob/master/md/AmoNotes.md#note_type}{all note types}.
 #' @param if_modified_since Filter. Get notes after some timestamp. Pass time like \code{'2019-01-01 12:30:00'}.
 #' @param all If you want to load all note for all types, set TRUE. You'll get list of dataframes.
 #' @export
@@ -34,6 +34,9 @@
 #' \dontrun{
 #' # leads
 #' notes <- AmoNotes(aiuth_list = auth_list, type = 'lead')
+#'
+#' # get lead's statuses changes from 1 june 2019
+#' notes <- AmoNotes(auth_list = auth_list, type = 'lead', note_type = 3, if_modified_since = '2019-06-01 00:00:00')
 #' }
 AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NULL, limit = 500,
                      id = NULL, element_id = NULL, type = 'contact', note_type = NULL, if_modified_since = NULL, all = F) {
@@ -51,100 +54,100 @@ AmoNotes <- function(email = NULL, apikey = NULL, domain = NULL, auth_list = NUL
   main_list <- list()
 
   for (i in type) {
-      # auth
-      auth <- AmoAuth(email, apikey, domain, verbose=F)
-      if (auth != T) stop(auth)
+    # auth
+    auth <- AmoAuth(email, apikey, domain, verbose=F)
+    if (auth != T) stop(auth)
 
-      tz <- get_timezone(email, apikey, domain)
-      Sys.setenv(TZ=tz)
+    tz <- get_timezone(email, apikey, domain)
+    Sys.setenv(TZ=tz)
 
-      for_what <- ifelse(i == "company", "companies", paste0(i, "s"))
+    for_what <- ifelse(i == "company", "companies", paste0(i, "s"))
 
-      packageStartupMessage('Processing notes for ', for_what, '...')
+    packageStartupMessage('Processing notes for ', for_what, '...')
 
-      # batch limit
-      limit_rows = limit
-      # first offset
-      limit_offset = 0
-      # variable limit
-      limit_limit = limit
-      # max before reauth
-      auth_limit = limit * 20
+    # batch limit
+    limit_rows = limit
+    # first offset
+    limit_offset = 0
+    # variable limit
+    limit_limit = limit
+    # max before reauth
+    auth_limit = limit * 20
 
-      notes_all = data.frame()
+    notes_all = data.frame()
 
-      # main
-      while (limit_limit == limit) {
-          # auth if too long
-          if (limit_offset %% (auth_limit - auth_limit %% limit) == 0) {
-            auth <- AmoAuth(email, apikey, domain, verbose=F)
-            if (auth != T) stop(auth)
-          }
+    # main
+    while (limit_limit == limit) {
+      # auth if too long
+      if (limit_offset %% (auth_limit - auth_limit %% limit) == 0) {
+        auth <- AmoAuth(email, apikey, domain, verbose=F)
+        if (auth != T) stop(auth)
+      }
 
-          # query params
-          que_easy <- list( limit_rows = limit_rows,
-                            limit_offset = limit_offset,
-                            id = pasteNULL(id),
-                            element_id = pasteNULL(element_id),
-                            type = i,
-                            note_type = note_type
-          )
-          que <- build_query(que_easy)
+      # query params
+      que_easy <- list( limit_rows = limit_rows,
+                        limit_offset = limit_offset,
+                        id = pasteNULL(id),
+                        element_id = pasteNULL(element_id),
+                        type = i,
+                        note_type = note_type
+      )
+      que <- build_query(que_easy)
 
-          Sys.setlocale("LC_TIME", "C")
-          hdr <- if (is.null(if_modified_since)) NULL else c("if-modified-since" = format(as.character(as.POSIXct(if_modified_since, tz = "UTC"), "%a, %d %b %Y %H:%M:%S")))
-          answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
-                        query=que,
-                        add_headers(.headers = hdr))
+      Sys.setlocale("LC_TIME", "C")
+      hdr <- if (is.null(if_modified_since)) NULL else c("if-modified-since" = format(as.character(as.POSIXct(if_modified_since, tz = "UTC"), "%a, %d %b %Y %H:%M:%S")))
+      answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"),
+                    query=que,
+                    add_headers(.headers = hdr))
+      dataRaw <- content(answer, "parsed", "application/json")
+      notes <- dataRaw$`_embedded`$items
+      last_limit <- limit_offset
+      limit_limit <- length(notes)
+      # amo bug
+      if (length(notes) == 0) {
+        answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
+        dataRaw <- content(answer, "parsed", "application/json")
+        notes <- dataRaw$`_embedded`$items
+        if (length(notes) == 0) {
+          Sys.sleep(0.5)
+          answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
           dataRaw <- content(answer, "parsed", "application/json")
           notes <- dataRaw$`_embedded`$items
-          last_limit <- limit_offset
           limit_limit <- length(notes)
-          # amo bug
-          if (length(notes) == 0) {
-            answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
-            dataRaw <- content(answer, "parsed", "application/json")
-            notes <- dataRaw$`_embedded`$items
-            if (length(notes) == 0) {
-              Sys.sleep(0.5)
-              answer <- GET(paste0("https://", domain, ".amocrm.ru/api/v2/notes"), query=que, add_headers(.headers = hdr))
-              dataRaw <- content(answer, "parsed", "application/json")
-              notes <- dataRaw$`_embedded`$items
-              limit_limit <- length(notes)
-            }
-            limit_limit <- length(notes)
-          }
-          limit_offset <- limit_offset + limit_limit
-          if (last_limit == limit_offset & last_limit != 0) stop("Seems that AmoCRM API doesn't work properly.
+        }
+        limit_limit <- length(notes)
+      }
+      limit_offset <- limit_offset + limit_limit
+      if (last_limit == limit_offset & last_limit != 0) stop("Seems that AmoCRM API doesn't work properly.
                                                                  Try another limit parameter, wait some time or contact Amo technical support.")
 
-          notes_df <- lapply(notes, function(x) {
-            # amo bug
-            x$id <- as.character(x$id)
+      notes_df <- lapply(notes, function(x) {
+        # amo bug
+        x$id <- as.character(x$id)
 
-            # delete
-            if (!is.null(x$`_links`)) x$`_links` <- NULL
-            if (!is.null(x$`_embedded`)) x$`_embedded` <- NULL
+        # delete
+        if (!is.null(x$`_links`)) x$`_links` <- NULL
+        if (!is.null(x$`_embedded`)) x$`_embedded` <- NULL
 
-            bind_rows(unlist(x))
+        bind_rows(unlist(x))
 
-          }) %>% bind_rows()
+      }) %>% bind_rows()
 
-          # dataframes
-          notes_all <- bind_rows(notes_all, notes_df)
+      # dataframes
+      notes_all <- bind_rows(notes_all, notes_df)
 
-          packageStartupMessage("Notes for ", for_what, " processed: ", limit_offset)
-      }
-      if (nrow(notes_all)) {
-        notes_all <- notes_all %>% setNames(gsub(".", "_", names(.), fixed = T)) %>% mutate(id = as.integer(id))
-        notes_all <- get_datetime(notes_all, c('created_at', 'updated_at'), email, apikey, domain) %>%
-          mutate(element_type = mapvalues(element_type,
-                                          c(1, 2, 3, 12),
-                                          c('contact', 'lead', 'company', 'customer'),
-                                          warn_missing = F))
-      }
-      main_list[[paste(i, "_notes")]] <- notes_all
-      packageStartupMessage()
+      packageStartupMessage("Notes for ", for_what, " processed: ", limit_offset)
+    }
+    if (nrow(notes_all)) {
+      notes_all <- notes_all %>% setNames(gsub(".", "_", names(.), fixed = T)) %>% mutate(id = as.integer(id))
+      notes_all <- get_datetime(notes_all, c('created_at', 'updated_at'), email, apikey, domain) %>%
+        mutate(element_type = mapvalues(element_type,
+                                        c(1, 2, 3, 12),
+                                        c('contact', 'lead', 'company', 'customer'),
+                                        warn_missing = F))
+    }
+    main_list[[paste(i, "_notes")]] <- notes_all
+    packageStartupMessage()
   }
   # warning
   options(warn = 0)
