@@ -31,7 +31,7 @@ AmoNotes(
 
 \item{id}{Filter. Pass id or vector of ids of notes.}
 
-\item{element_id}{Filter. Id of lead/contact/etc.}
+\item{element_id}{Filter. Id of lead/contact/etc. Vector is not allowed.}
 
 \item{type}{What to get. You can pass \code{"contact"}, \code{"lead"}, \code{"company"} or \code{"task"}. Default to \code{"contact"}. If you need all, look at \code{"all"} parameter.}
 
