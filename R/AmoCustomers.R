@@ -12,8 +12,8 @@
 #' @param query Filter. Searching for all fields of customers. String.
 #' @param main_user Filter. Pass id or vector of ids of responsible user ids. You can get ids from AmoUsers().
 #' @param date_type Filter. Choose date type which you want to filter (\code{'create'} or \code{'modify'})
-#' @param date_from Filter. Date from, e.g. \code{'2019-01-01'}.
-#' @param date_to Filter. Date to, e.g. \code{'2019-01-01'}.
+#' @param date_from Filter. Date from, e.g. \code{'2019-01-01'}. 
+#' @param date_to Filter. Date to, e.g. \code{'2019-01-01'}. Works only when date_from is specified.
 #' @param next_date_from Filter. Date from of next purchasing.
 #' @param next_date_to Filter. Date to of next purchasing.
 #' @include query_functions.R

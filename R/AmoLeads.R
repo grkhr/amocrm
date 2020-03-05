@@ -14,9 +14,9 @@
 #' @param with_with Additional data. Default to \code{'is_price_modified_by_robot,loss_reason_name'}.
 #' @param status Filter. Single status id or vector of ids. You can get ids from AmoPipelinesStatuses().
 #' @param date_create_from Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
-#' @param date_create_to Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
+#' @param date_create_to Filter. Date create of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}. Works only when date_create_from is specified.
 #' @param date_modify_from Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or like \code{'2019-01-01 12:30:00'}.
-#' @param date_modify_to Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or timezone like \code{'2019-01-01 12:30:00'}.
+#' @param date_modify_to Filter. Date modify of lead. You can pass like \code{'2019-01-01'} or timezone like \code{'2019-01-01 12:30:00'}. Works only when date_modify_from is specified.
 #' @param tasks Filter. Pass \code{1} if you need leads without tasks, pass \code{2} if you need leads with undone tasks.
 #' @param active Filter. Pass \code{1} if you need only active leads.
 #' @export
