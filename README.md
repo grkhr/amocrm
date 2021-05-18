@@ -18,6 +18,7 @@ devtools::install_github("grkhr/amocrm")
 ## Quick start
 
 Для использования пакета нужны e-mail, API-ключ и домен. Их можно найти тут: **xxx.amocrm.ru/settings/profile/**, где **xxx** — ваш поддомен.
+
 **UPD**: Так как AmoCRM ввели OAUTH2, а пакет работает на старом методе (токенах) и не переписывался для нового — вот [воркэраунд получения токена](https://hamtim.ru/2020/07/02/как-получить-api-ключ-amocrm/).
 
 ```r
